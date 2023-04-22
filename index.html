@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombies and Cats</title>
+    
+    <link rel="icon" type="image/x-icon" href="images/icons/opwhite.png"></link>
+    <link rel="stylesheet" href="styles/style.css"></link>
+</head>
+
+<body>
+    
+    <div class="header">
+        <h1>Gotta catch 'em all</h1>
+    </div>
+
+    <div>
+        <img id="zombie" alt="Zombie">
+        <img id="currentRoom" src="images/rooms/room1.jpg">
+        <img id="pokemon" alt="Pokemon">
+    </div>
+    
+    <div id="gameBoard" class="grid-container"></div>
+    
+    <div id="controllers">
+        <input type="button" value="North" id="north" onclick="move('north')"><br>
+        <input type="button" value="West" id="west" onclick="move('west')">
+        <input type="button" value="East" id="east" onclick="move('east')"><br>
+        <input type="button" value="South" id="south" onclick="move('south')">
+        <label id="rescued"><br>Pokemon rescued: 0</label>
+        <label id="killed"><br>Pokemon killed: 0</label>
+    </div>
+
+    <div>
+        <br>
+        <input type="button" name="restart" id="restart" value="Restart" onclick="restartGame()">
+    </div>
+    
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

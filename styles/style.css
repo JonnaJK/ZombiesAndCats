@@ -1,0 +1,74 @@
+body {
+    padding: 10px;
+    color: whitesmoke;
+    text-shadow: 5px 4px 5px whitesmoke, 1px 1px 5px red;
+    text-align: center;
+    font-variant: small-caps;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+#currentRoom {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: auto;
+    visibility: visible;
+}
+
+#zombie {
+    position: relative;
+    height: 300px;
+    visibility: hidden;
+}
+
+#pokemon {
+    position: relative;
+    height: 300px;
+    visibility: hidden;
+}
+
+#rescued, #killed {
+    text-shadow: none;
+    color: whitesmoke;
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: repeat(5, 65px);
+    grid-auto-rows: 55px;
+}
+
+input {
+    color: whitesmoke;
+    background-color: darkred;
+    border-radius: 10px;
+    height: 30px;
+    width: 60px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.item, .occupied {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid darkred;
+    color: whitesmoke;
+    text-shadow: none;
+}
+
+.grid-container {
+    text-align: center;
+    padding: 20px;
+}
