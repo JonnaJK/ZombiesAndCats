@@ -1,6 +1,6 @@
 name: My first workflow
 
-on: workflow_dispatch
+on: push
 
 jobs: 
   my-amazing-job:
@@ -21,3 +21,4 @@ jobs:
           ls -lah ${{ github.workspace }};
           echo "Contents of index.html";
           cat index.html
+      - run: echo "This job's status is ${{ job.status }}"
