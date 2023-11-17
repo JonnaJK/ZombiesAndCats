@@ -11,11 +11,21 @@ on:
 jobs:
   the-best-job:
     runs-on: ubuntu-latest
+    env:
+      FAIL_MY_STEP: ${{ inputs.fail_my_step }}
     steps:
       - name: yes was passed in as 'fail_my_step'
         if: inputs.fail_my_step == 'yes'
         run: echo "you said yes!! :)"
         
       - name: no was passed in as 'fail_my_step'
-        run: echo "you said no!!  :("
         if: inputs.fail_my_step == 'no'
+        run: echo "you said no!!  :("
+        
+      - name: Step that may fail
+        shell: bash
+        run: |
+          echo "Hello, I may fail by reading the env var FAIL_MY_STEP, which is set to ${{inputs.fail_my_step}}!"
+          if [ "yes" = "$FAIL_MY_STEP" ]; then
+            exit 42
+          fi
