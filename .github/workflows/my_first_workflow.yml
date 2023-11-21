@@ -22,3 +22,6 @@ jobs:
           echo "Contents of index.html";
           cat index.html
       - run: echo "This job's status is ${{ job.status }}"
+
+      - name: Another step
+        run: echo "another step run by ${{ secrets.MY_REAL_NAME }}"
