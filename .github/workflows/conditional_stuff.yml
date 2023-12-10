@@ -1,4 +1,4 @@
-name: Conditional Examples
+name: Conditional examples
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
         description: 'Shall we fail the step? (yes/no)'
         required: true
         type: string
-        default: yes
+        default: 'yes'
 jobs:
   the-best-job:
     runs-on: ubuntu-latest
@@ -19,13 +19,27 @@ jobs:
         run: echo "you said yes!! :)"
         
       - name: no was passed in as 'fail_my_step'
+        run: echo "you said no!! :("
         if: inputs.fail_my_step == 'no'
-        run: echo "you said no!!  :("
-        
+
       - name: Step that may fail
         shell: bash
         run: |
-          echo "Hello, I may fail by reading the env var FAIL_MY_STEP, which is set to ${{inputs.fail_my_step}}!"
+          echo "Hello, I may fail by reading the env var FAIL_MY_STEP"
           if [ "yes" = "$FAIL_MY_STEP" ]; then
             exit 42
           fi
+
+      - name: Another step
+        run: echo "another step..."
+
+      - name: Another step
+        run: echo "another step..."
+
+      - name: Step that runs on failure
+        if: failure()
+        run: echo "Oh no... call for help!"
+        
+      - name: Step that always runs
+        if: always()
+        run: echo "I will always run!"
